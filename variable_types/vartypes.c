@@ -1,15 +1,14 @@
-#include <inttypes.h>
-#include <limits.h>
+#include <stdint.h>
 
 int main ()
 {
-  // not portable!
+  // not very portable
   {
     int16_t i16;
     uint32_t u32;
   }
 
-  // portable :)
+  // portable
   {
     int_least16_t i16;
     uint_least64_t u64;
