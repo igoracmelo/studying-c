@@ -1,6 +1,7 @@
 #include "llist.h"
 
-llist *llist_find(llist *root, char *value) {
+llist* llist_find(llist* root, char* value)
+{
   if (root == NULL)
     return NULL;
 
@@ -10,10 +11,13 @@ llist *llist_find(llist *root, char *value) {
   return root;
 }
 
-void llist_append(llist *root, char *value) {
+void llist_append(llist* root, char* value) {
   if (root->next) {
     llist_append(root->next, value);
   }
 
-  *(root->next) = (llist){.next = NULL, .value = value};
+  *(root->next) = (llist) {
+    .next = NULL,
+    .value = value
+  };
 }
