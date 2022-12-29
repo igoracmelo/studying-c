@@ -8,6 +8,6 @@ typedef llist map[HASHSIZE];
 
 uint8_t hash(char* s);
 
-void map_put(map m, char* key, char* value);
-
 char* map_get(map m, char* key);
+
+void map_put(map m, char* key, char* value);
