@@ -34,6 +34,8 @@ int main(int argc, char *argv[]) {
         }
         putc(ch, stdout);
       }
+
+      fclose(fptrs[i]);
     }
 
     fflush(stdout);
