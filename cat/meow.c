@@ -16,6 +16,8 @@ int main(int argc, char *argv[]) {
 
   // cat with args: print file(s) content(s)
   else {
+    // there may be many file pointers and won't fit on the stack
+    // so it is better to heap allocate
     FILE **fptrs = malloc(sizeof(FILE) * (argc - 1));
 
     for (int i = 1; i < argc; i++) {
