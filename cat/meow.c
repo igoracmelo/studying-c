@@ -16,26 +16,23 @@ int main(int argc, char *argv[]) {
 
   // cat with args: print file(s) content(s)
   else {
-    // there may be many file pointers and won't fit on the stack
-    // so it is better to heap allocate
-    FILE **fptrs = malloc(sizeof(FILE) * (argc - 1));
-
     for (int i = 1; i < argc; i++) {
-      fptrs[i] = fopen(argv[i], "r");
-      if (fptrs[i] == NULL) {
+      FILE *fp = fopen(argv[i], "r");
+
+      if (fp == NULL) {
         fprintf(stderr, "Failed to open file %s.", argv[i]);
         exit(1);
       }
 
       while (1) {
-        int ch = fgetc(fptrs[i]);
+        int ch = fgetc(fp);
         if (ch == EOF) {
           break;
         }
         putc(ch, stdout);
       }
 
-      fclose(fptrs[i]);
+      fclose(fp);
     }
 
     fflush(stdout);
