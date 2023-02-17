@@ -1,4 +1,3 @@
-#pragma once
 #include "llist.h"
 #include <stdint.h>
 
@@ -7,6 +6,8 @@
 typedef llist map[HASHSIZE];
 
 uint8_t hash(char* s);
+
+void map_init(map m);
 
 char* map_get(map m, char* key);
 
